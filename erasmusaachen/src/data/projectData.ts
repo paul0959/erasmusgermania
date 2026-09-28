@@ -177,7 +177,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Sfera gigantică reprezentând cristalul de fier, prima lecție deschisă de geometrie și fizică a mobilității.",
         location: "Platoul Heysel, Bruxelles",
         category: "shadowing",
-        imageSrc: "photos/day1_atomium.jpg",
+        imageSrc: "/photos/atomium.jpg",
         fallbackType: "atomium",
         cameraMeta: "Bruxelles · 24mm f/2.8 · 1/500s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -189,7 +189,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Explorarea fațadelor baroce și gotice din piața centrală a Bruxelles-ului cu grupul de 14 elevi.",
         location: "Grand Place, Bruxelles",
         category: "cultural",
-        imageSrc: "photos/day1_grandplace.jpg",
+        imageSrc: "/photos/grandpalce.jpg",
         fallbackType: "cathedral",
         cameraMeta: "Bruxelles · 35mm f/3.2 · 1/250s",
         authorCredit: "Prof. Hodoroga Florin"
@@ -201,7 +201,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Pasaj istoric monumental, exercițiu de orientare și dinamică urbană în capitala europeană.",
         location: "Bruxelles Centru",
         category: "cultural",
-        imageSrc: "photos/day1_galeries.jpg",
+        imageSrc: "/photos/galerii.jpg",
         fallbackType: "cathedral",
         cameraMeta: "Bruxelles · 50mm f/2.0 · 1/160s",
         authorCredit: "Prof. Sîngerozan Varvara"
@@ -213,7 +213,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Primul contact vizual cu Geschwister-Scholl-Gymnasium și pregătirea programului de Job Shadowing.",
         location: "Aachen, Germania",
         category: "community",
-        imageSrc: "photos/day1_aachen_arrival.jpg",
+        imageSrc: "/photos/scoala.jpg",
         fallbackType: "classroom",
         cameraMeta: "Aachen · 28mm f/2.8 · 1/200s",
         authorCredit: "Prof. Petrașcu Traian"
@@ -259,7 +259,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Prof. Paul Frunză asistând la rezolvarea ecuațiilor și construirea figurilor geometrice dinamice.",
         location: "Sala 204, Geschwister-Scholl-Gymnasium",
         category: "shadowing",
-        imageSrc: "photos/day2_math_interactive.jpg",
+        imageSrc: "/photos/orademate.jpg",
         fallbackType: "classroom",
         cameraMeta: "Geschwister-Scholl · 35mm f/2.0 · 1/125s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -271,7 +271,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Elevii noștri colaborând cu tinerii din Aachen la realizarea obiectelor durabile din resurse ecologice.",
         location: "Atelierul de Artă & Sustenabilitate",
         category: "green",
-        imageSrc: "photos/day2_wool_workshop.jpg",
+        imageSrc: "/photos/reciclare.jpg",
         fallbackType: "green",
         cameraMeta: "Aachen · 40mm f/2.5 · 1/180s",
         authorCredit: "Prof. Hodoroga Florin"
@@ -283,7 +283,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Holurile primitoare cu dulapuri individuale și panouri de vizibilitate Erasmus+.",
         location: "Corpul Central, Geschwister-Scholl",
         category: "shadowing",
-        imageSrc: "photos/day2_school_hallway.jpg",
+        imageSrc: "/photos/infrastructura.jpg",
         fallbackType: "classroom",
         cameraMeta: "Aachen · 24mm f/3.5 · 1/90s",
         authorCredit: "Prof. Petrașcu Traian"
@@ -295,7 +295,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Director Sîngerozan Varvara și profesorii în dialog profesional cu conducerea școlii partenere.",
         location: "Sala Profesorală, Aachen",
         category: "community",
-        imageSrc: "photos/day2_teachers_meeting.jpg",
+        imageSrc: "/photos/dezbatere.jpg",
         fallbackType: "classroom",
         cameraMeta: "Aachen · 50mm f/1.8 · 1/200s",
         authorCredit: "Prof. Sîngerozan Varvara"
@@ -341,7 +341,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Catedrala imperială cu capela octogonală a lui Carol cel Mare și candelabrul istoric Barbarossa.",
         location: "Katschhof, Aachen",
         category: "cultural",
-        imageSrc: "photos/day3_aachen_dom.jpg",
+        imageSrc: "/photos/domaachen.jpg",
         fallbackType: "dom",
         cameraMeta: "Aachen Dom · 18mm f/4.0 · 1/320s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -353,7 +353,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Studiul apei sulfuroase calde (52°C) în colonada neoclasică, exercițiu de chimie și termodinamică.",
         location: "Friedrich-Wilhelm-Platz, Aachen",
         category: "green",
-        imageSrc: "photos/day3_elisenbrunnen.jpg",
+        imageSrc: "/photos/izvoare.jpg",
         fallbackType: "nature",
         cameraMeta: "Aachen · 35mm f/2.2 · 1/200s",
         authorCredit: "Prof. Petrașcu Traian"
@@ -365,7 +365,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Machete digitale interactive și instalații tactile de predare a istoriei prin tehnologii moderne.",
         location: "Katschhof, Aachen",
         category: "shadowing",
-        imageSrc: "photos/day3_centre_charlemagne.jpg",
+        imageSrc: "/photos/muzeu.jpg",
         fallbackType: "classroom",
         cameraMeta: "Aachen · 24mm f/2.8 · 1/80s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -377,7 +377,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Grupul felicitând o absolventă a Liceului Solomon Haliță stabilită de decenii în Aachen.",
         location: "Aachen Altstadt",
         category: "community",
-        imageSrc: "photos/day3_gelateria.jpg",
+        imageSrc: "/photos/revedere.jpg",
         fallbackType: "gelateria",
         cameraMeta: "Aachen · 50mm f/1.8 · 1/120s",
         authorCredit: "Prof. Sîngerozan Varvara"
@@ -392,7 +392,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
     subtitle: "Sisteme de Ecuații prin Substituție, Ziua de Naștere & Dreiländereck",
     location: "Geschwister-Scholl-Gymnasium & Dreiländereck (DE-BE-NL)",
     country: "Germania · Belgia · Olanda",
-    description: "Zi dedicată în profunzime Job Shadowing-ului didactic la matematică, urmată de o drumeție la punctul unde se întâlnesc trei națiuni: Germania, Belgia și Olanda, simbolizând Europa fără granițe.",
+    description: "Zi dedicată în profunzime Job Shadowing-ului didactic la matematică, urmată de drumeție la punctul unde se întâlnesc trei națiuni: Germania, Belgia și Olanda, simbolizând Europa fără granițe.",
     extendedText: "Profesorul Frunză Paul-Adrian a asistat la o lecție magistrală despre rezolvarea sistemelor de ecuații prin metoda substituției. Profesorul german a demonstrat cum izolarea variabilei x și substituirea în a doua ecuație poate fi evidențiată prin culori dinamice pe tabla interactivă, elevii notând riguros fiecare pas în caiete. În a doua parte a zilei, comunitatea a urcat la Vaalserberg (Dreiländereck).",
     focus: "stem",
     tags: ["Job Shadowing Matematică", "3 Country Point", "Dreiländereck", "Act European"],
@@ -423,7 +423,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Demonstrație pas cu pas a izolării variabilei x pe ecranul digital de la Geschwister-Scholl.",
         location: "Cabinetul de Matematică, Aachen",
         category: "shadowing",
-        imageSrc: "photos/day4_math_system.jpg",
+        imageSrc: "/photos/sisteme.jpg",
         fallbackType: "classroom",
         cameraMeta: "Aachen · 50mm f/2.0 · 1/150s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -435,7 +435,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Simbolul 'Act European': elevii stând concomitent cu picioarele în Germania, Belgia și Olanda.",
         location: "Vaalserberg (DE-BE-NL)",
         category: "cultural",
-        imageSrc: "photos/day4_dreilandereck.jpg",
+        imageSrc: "/photos/padure.jpg",
         fallbackType: "nature",
         cameraMeta: "Dreiländereck · 24mm f/4.0 · 1/400s",
         authorCredit: "Prof. Hodoroga Florin"
@@ -444,10 +444,10 @@ export const DAILY_JOURNAL: DayJournal[] = [
         id: "d4-3",
         dayNumber: 4,
         title: "Sărbătorirea Zilei de Naștere în Echipă",
-        caption: "Moment de căldură umană și prietenie: ecusoanele școlii purtate cu mândrie și tort festiv.",
+        caption: "Moment de căldură umană și prietenie: ecusoanele școlii purtate cu mândrie.",
         location: "Geschwister-Scholl-Gymnasium",
         category: "community",
-        imageSrc: "photos/day4_birthday.jpg",
+        imageSrc: "/photos/zidenastere.jpg",
         fallbackType: "celebration",
         cameraMeta: "Aachen · 35mm f/2.2 · 1/100s",
         authorCredit: "Prof. Sîngerozan Varvara"
@@ -459,7 +459,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Lecție de geografie în aer liber ghidată de Prof. Hodoroga în rezervația naturală de la graniță.",
         location: "Pădurea Vaalserberg, Olanda",
         category: "green",
-        imageSrc: "photos/day4_forest_tower.jpg",
+        imageSrc: "/photos/turnpadure.jpg",
         fallbackType: "nature",
         cameraMeta: "Vaals · 28mm f/3.2 · 1/300s",
         authorCredit: "Prof. Petrașcu Traian"
@@ -505,7 +505,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Catedrala monumentală din Köln, capodoperă a proporțiilor matematice și a verticalității gotice.",
         location: "Domkloster 4, Köln",
         category: "cultural",
-        imageSrc: "photos/day5_kolner_dom.jpg",
+        imageSrc: "/photos/domkoln.jpg",
         fallbackType: "cologne",
         cameraMeta: "Köln · 16mm f/5.6 · 1/400s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -517,7 +517,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Perspectivă aeriană spectaculoasă asupra Rinului și a metropolei Köln dintr-o cabină suspendată.",
         location: "Fluviul Rin, Köln",
         category: "shadowing",
-        imageSrc: "photos/day5_cable_car.jpg",
+        imageSrc: "/photos/telegondola.jpg",
         fallbackType: "cologne",
         cameraMeta: "Rhein Seilbahn · 28mm f/3.5 · 1/600s",
         authorCredit: "Prof. Petrașcu Traian"
@@ -529,7 +529,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Instalații spațiale din oțel și oglinzi convexe în armonie deplină cu vegetația parcului.",
         location: "Riehler Str., Köln",
         category: "green",
-        imageSrc: "photos/day5_sculpture_park.jpg",
+        imageSrc: "/photos/sculptura.jpg",
         fallbackType: "nature",
         cameraMeta: "Köln · 40mm f/2.8 · 1/250s",
         authorCredit: "Prof. Hodoroga Florin"
@@ -541,7 +541,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Traseul feroviar istoric și sutele de mii de mărturii ale prieteniei europene.",
         location: "Hohenzollernbrücke, Köln",
         category: "community",
-        imageSrc: "photos/day5_bridge.jpg",
+        imageSrc: "/photos/podrin.jpg",
         fallbackType: "cathedral",
         cameraMeta: "Köln · 24mm f/4.0 · 1/350s",
         authorCredit: "Prof. Sîngerozan Varvara"
@@ -583,11 +583,11 @@ export const DAILY_JOURNAL: DayJournal[] = [
       {
         id: "d6-1",
         dayNumber: 6,
-        title: "Ceremonia Certificatelor Erasmus+ Europass",
-        caption: "Elevii și profesorii primind atestatele oficiale recunoscute la nivelul Uniunii Europene.",
+        title: "Dezbatere Finală cu Profesorii Germani",
+        caption: "Elevii și profesorii în timpul unei sesiuni metodice finale.",
         location: "Aula Festivă, Geschwister-Scholl",
         category: "community",
-        imageSrc: "photos/day6_europass_ceremony.jpg",
+        imageSrc: "/photos/dezbatere.jpg",
         fallbackType: "celebration",
         cameraMeta: "Aachen · 35mm f/2.0 · 1/120s",
         authorCredit: "Director Prof. Sîngerozan Varvara"
@@ -599,7 +599,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Elevii construind icosaedre și dodecaedre din hârtie sub coordonarea profesorilor de științe.",
         location: "Sala de Matematică, Aachen",
         category: "shadowing",
-        imageSrc: "photos/day6_origami.jpg",
+        imageSrc: "/photos/origami.jpg",
         fallbackType: "classroom",
         cameraMeta: "Aachen · 45mm f/2.5 · 1/160s",
         authorCredit: "Prof. Frunză Paul-Adrian"
@@ -611,7 +611,7 @@ export const DAILY_JOURNAL: DayJournal[] = [
         caption: "Bucuria împărtășită între elevii români și gazdele lor germane la finalul mobilității.",
         location: "Mensa Școlară, Aachen",
         category: "community",
-        imageSrc: "photos/day6_festive_lunch.jpg",
+        imageSrc: "/photos/masafestiva.jpg",
         fallbackType: "celebration",
         cameraMeta: "Aachen · 28mm f/2.8 · 1/100s",
         authorCredit: "Prof. Hodoroga Florin"
@@ -620,10 +620,10 @@ export const DAILY_JOURNAL: DayJournal[] = [
         id: "d6-4",
         dayNumber: 6,
         title: "Poza Oficială a Delegației Solomon Haliță",
-        caption: "Cei 14 elevi și cei 4 profesori în fața școlii partenere la încheierea mobilității 17–23 Mai 2026.",
-        location: "Fațada Geschwister-Scholl-Gymnasium",
+        caption: "Cei 14 elevi și cei 4 profesori la încheierea mobilității 17–23 Mai 2026.",
+        location: "Geschwister-Scholl-Gymnasium",
         category: "community",
-        imageSrc: "photos/day6_group_photo.jpg",
+        imageSrc: "/photos/pozaoficiala.jpg",
         fallbackType: "celebration",
         cameraMeta: "Aachen · 24mm f/4.0 · 1/250s",
         authorCredit: "Prof. Petrașcu Traian"
