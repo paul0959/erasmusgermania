@@ -44,71 +44,25 @@ export default function App() {
 
   const handleNavigateToGeneralGallery = () => {
     const el = document.getElementById('galerie');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
     audioSystem.playSelectSound();
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white relative">
-      
+    <div className="min-h-screen bg-[#fbf8f2] text-slate-900 flex flex-col font-sans selection:bg-[#758467] selection:text-white relative">
       <AbstractHolographicBackdrop />
-
-      <Navbar onOpenDossier={() => {
-        setDossierOpen(true);
-        audioSystem.playSelectSound();
-      }} />
-
+      <Navbar onOpenDossier={() => { setDossierOpen(true); audioSystem.playSelectSound(); }} />
       <main className="flex-1 relative z-10">
-        <HeroSection 
-          onOpenTeacherDossier={() => {
-            setDossierOpen(true);
-            audioSystem.playSelectSound();
-          }}
-        />
-
-        <Hologram3DStage
-          onSelectDayDetails={handleSelectDay}
-          onSelectPhoto={handleSelectPhoto}
-          onNavigateToGeneralGallery={handleNavigateToGeneralGallery}
-        />
-
+        <HeroSection onOpenTeacherDossier={() => { setDossierOpen(true); audioSystem.playSelectSound(); }} />
+        <Hologram3DStage onSelectDayDetails={handleSelectDay} onSelectPhoto={handleSelectPhoto} onNavigateToGeneralGallery={handleNavigateToGeneralGallery} />
         <JobShadowingSpotlight />
-
         <GallerySection />
-
         <OutcomesAndVoices />
       </main>
-
       <Footer />
-      
-      <DayDetailModal
-        day={selectedDay}
-        onClose={() => {
-          setSelectedDay(null);
-          audioSystem.playSelectSound();
-        }}
-        onSelectAnotherDay={handleSelectDayById}
-        onNavigateToGeneralGallery={handleNavigateToGeneralGallery}
-      />
-
-      <ProjectDossierModal
-        isOpen={dossierOpen}
-        onClose={() => {
-          setDossierOpen(false);
-          audioSystem.playSelectSound();
-        }}
-      />
-
-      <PhotoLightboxModal
-        photo={activePhoto}
-        onClose={() => {
-          setActivePhoto(null);
-          audioSystem.playSelectSound();
-        }}
-        onSelectPhoto={handleSelectPhoto}
-      />
+      <DayDetailModal day={selectedDay} onClose={() => { setSelectedDay(null); audioSystem.playSelectSound(); }} onSelectAnotherDay={handleSelectDayById} onNavigateToGeneralGallery={handleNavigateToGeneralGallery} />
+      <ProjectDossierModal isOpen={dossierOpen} onClose={() => { setDossierOpen(false); audioSystem.playSelectSound(); }} />
+      <PhotoLightboxModal photo={activePhoto} onClose={() => { setActivePhoto(null); audioSystem.playSelectSound(); }} onSelectPhoto={handleSelectPhoto} />
     </div>
   );
 }
