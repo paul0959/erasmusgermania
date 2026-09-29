@@ -15,9 +15,9 @@ export const PARTICIPATING_TEACHERS: ParticipatingTeacher[] = [
     title: "Director",
     role: "Coordonator Proiect",
     roleType: "coordinator",
-    disciplines: "Management & Științe",
-    jobShadowingFocus: "Am vrut să văd cum este organizată școala la nivel administrativ.",
-    description: "Ca director, bucuria mea cea mai mare a fost să văd cum elevii noștri colaborează cu tinerii germani. Am pus bazele unui parteneriat care va ajuta liceul nostru pe termen lung."
+    disciplines: "Management Educațional",
+    jobShadowingFocus: "Analiza managementului școlar european și a strategiilor de internaționalizare.",
+    description: "În calitate de coordonator al proiectului Erasmus+, am vizat stabilirea unui parteneriat educațional pe termen lung cu Geschwister-Scholl-Gymnasium și integrarea bunelor practici observate la nivelul managementului instituțional."
   },
   {
     name: "Prof. Hodoroga Florin",
@@ -25,17 +25,17 @@ export const PARTICIPATING_TEACHERS: ParticipatingTeacher[] = [
     role: "Însoțitor Elevi",
     roleType: "escort",
     disciplines: "Geografie",
-    jobShadowingFocus: "Educația se face și afară, nu doar în bănci.",
-    description: "Pentru mine, ca profesor de geografie, să scot copiii în natură și să le arăt granița vie dintre trei țări a fost cea mai frumoasă lecție practică pe care le-o puteam oferi."
+    jobShadowingFocus: "Integrarea metodelor de educație outdoor în studiul geografiei și ecologiei.",
+    description: "Activitatea mea s-a concentrat pe organizarea și coordonarea aplicațiilor practice în teren, facilitând elevilor recunoașterea reperelor geografice și înțelegerea conceptelor de mediu din perspectivă practică."
   },
   {
     name: "Prof. Frunză Paul-Adrian",
     title: "Profesor",
     role: "Participant Job Shadowing",
     roleType: "shadowing",
-    disciplines: "Matematică & Info",
-    jobShadowingFocus: "Am vrut să văd cum transformăm tabla într-un ecran cu adevărat interactiv.",
-    description: "La orele de matematică din Aachen am găsit exact inspirația de care aveam nevoie. Am văzut cum tehnologia nu înlocuiește munca elevului, ci o face mult mai atractivă și ușor de înțeles."
+    disciplines: "Matematică & Informatică",
+    jobShadowingFocus: "Eficiența utilizării ecranelor interactive în predarea științelor exacte.",
+    description: "Am asitat la orele de matematică pentru a documenta modalitățile prin care tehnologia tactilă poate sprijini rezolvarea exercițiilor la clasă, menținând în același timp rigoarea etapelor de calcul."
   },
   {
     name: "Prof. Petrașcu Traian",
@@ -43,8 +43,8 @@ export const PARTICIPATING_TEACHERS: ParticipatingTeacher[] = [
     role: "Participant Job Shadowing",
     roleType: "shadowing",
     disciplines: "Fizică",
-    jobShadowingFocus: "Laboratorul ca spațiu de descoperire digitală.",
-    description: "Laboratorul de fizică de acolo mi-a confirmat că trebuie să trecem la măsurători digitale. Entuziasmul copiilor când văd graficul formându-se pe tabletă în timp ce fac experimentul este de neprețuit."
+    jobShadowingFocus: "Digitalizarea experimentelor școlare și utilizarea senzorilor în laborator.",
+    description: "Am urmărit integrarea instrumentelor de măsurare digitală în orele de fizică, analizând modul în care elevii generează și interpretează date experimentale utilizând tabletele și senzorii electronici."
   }
 ];
 
@@ -75,15 +75,15 @@ const generateMediaForDay = (dayNumber: number, startId: number, endId: number):
     mediaItems.push({
       id: `media-${i}`,
       dayNumber: dayNumber,
-      title: `Amintiri din călătorie`,
-      caption: `Un moment surprins alături de elevi.`,
-      location: "Aachen & Împrejurimi",
+      title: `Activitate documentată`,
+      caption: `Cadru preluat în timpul desfășurării activităților din program.`,
+      location: "Locație de proiect",
       category: 'community',
       imageSrc: `/${i}.${isVideo ? 'mp4' : 'jpg'}`,
       mediaType: isVideo ? 'video' : 'image',
       fallbackType: 'nature',
-      cameraMeta: "Arhiva Noastră",
-      authorCredit: "Echipa Solomon Haliță"
+      cameraMeta: "Arhiva Proiectului",
+      authorCredit: "Liceul Teoretic Solomon Haliță"
     });
   }
   return mediaItems;
@@ -94,31 +94,31 @@ export const DAILY_JOURNAL: DayJournal[] = [
     id: 1,
     dayNumber: 1,
     date: "Marți, 19 Mai 2026",
-    title: "Prima zi: Am aterizat în Belgia și am vizitat Bruxelles",
-    subtitle: "Piața centrală și o lecție uriașă de științe la Atomium",
+    title: "Documentare urbană și științifică în Bruxelles",
+    subtitle: "Vizită de studiu în centrul istoric și la structura Atomium",
     location: "Bruxelles",
     country: "Belgia",
-    description: "Am pornit la drum cu mult entuziasm! Primul nostru contact a fost cu străzile din Bruxelles. Am coborât în Grand Place și am lăsat copiii să simtă pulsul orașului, iar apoi i-am dus să vadă Atomium.",
-    extendedText: "Nu vă puteți imagina uimirea de pe fețele lor când au văzut structura cristalină a fierului mărită de miliarde de ori. A fost prima noastră „oră” de științe, predată direct sub cerul liber, înainte măcar să ajungem la școala gazdă din Aachen.",
+    description: "Prima zi a mobilității a presupus deplasarea către Bruxelles. Delegația, formată din 4 cadre didactice și 14 elevi, a efectuat o vizită de studiu în centrul istoric Grand Place și a analizat structura Atomium.",
+    extendedText: "La Atomium, am explicat elevilor modelul structural al celulei cristaline de fier, folosind construcția ca material didactic macroscopic. Ulterior, grupul și-a continuat deplasarea cu autocarul spre Aachen pentru formalitățile de cazare.",
     focus: "cultural",
-    tags: ["Bruxelles", "Atomium", "Bucuria Începutului"],
+    tags: ["Bruxelles", "Atomium", "Documentare Geografică"],
     schedule: [
-      { time: "07:30", activity: "Aterizarea și primele emoții la ieșirea din aeroport" },
-      { time: "11:45", activity: "La pas prin Grand Place și Galeriile Royale" },
-      { time: "14:15", activity: "Fascinația din fața structurii Atomium" },
-      { time: "17:30", activity: "Călătoria cu autocarul spre Aachen și instalarea la hotel" }
+      { time: "07:30", activity: "Aterizarea și organizarea logisticii de transport" },
+      { time: "11:45", activity: "Parcurgerea unui traseu de recunoaștere în Grand Place" },
+      { time: "14:15", activity: "Analiza structurii arhitecturale a monumentului Atomium" },
+      { time: "17:30", activity: "Deplasarea spre Aachen și preluarea spațiilor de cazare" }
     ],
-    takeaway: "Entuziasmul copiilor ne-a confirmat din prima zi că știința îmbinată cu arhitectura poate fi fascinantă.",
+    takeaway: "Corelarea noțiunilor teoretice de structură atomică cu obiectivele arhitecturale reale.",
     accentColor: "from-blue-600 to-indigo-800",
     shadowingNotes: {
-      observers: "Noi, echipa de profesori",
-      focusArea: "Observarea spațiilor neconvenționale de învățare",
+      observers: "Cadrele didactice însoțitoare",
+      focusArea: "Utilizarea spațiilor neconvenționale ca resursă educațională",
       keyObservations: [
-        "Elevii au fost mult mai atenți la explicațiile despre atomi având modelul uriaș în fața lor.",
-        "S-au descurcat grozav cu orientarea pe străduțele din Bruxelles.",
-        "Am simțit de la început cum se leagă prieteniile în grup."
+        "Elevii au asimilat mai eficient conceptele de fizică având la dispoziție modelul 3D la scară mare.",
+        "S-a exersat capacitatea de orientare urbană utilizând rețeaua de transport local.",
+        "Comunicarea în limba engleză a fost utilizată constant pe parcursul zilei."
       ],
-      pedagogicalApplication: "Ne propunem să folosim mai des modele vizuale 3D atunci când predăm structuri abstracte."
+      pedagogicalApplication: "Implementarea utilizării machetelor și modelelor fizice 3D în explicarea structurilor abstracte la clasă."
     },
     photos: generateMediaForDay(1, 1, 12)
   },
@@ -126,32 +126,32 @@ export const DAILY_JOURNAL: DayJournal[] = [
     id: 2,
     dayNumber: 2,
     date: "Miercuri, 20 Mai 2026",
-    title: "Ziua 2: Primul clopoțel la școala din Germania",
-    subtitle: "Am luat loc în bănci și am asitat la primele ore de mate și fizică",
+    title: "Asistență la ore și ateliere de sustenabilitate",
+    subtitle: "Job Shadowing la disciplinele exacte și activități practice",
     location: "Geschwister-Scholl-Gymnasium",
     country: "Germania",
-    description: "Astăzi am avut mari emoții, am intrat pentru prima dată în școala parteneră. Noi, profesorii, ne-am așezat cuminți în ultimele rânduri la orele de științe, în timp ce elevii noștri au mers la atelierele ecologice.",
-    extendedText: "Ne-a plăcut enorm să vedem cum lucrează profesorii de aici cu tablele interactive. Păstrează caietul clasic pentru scris, dar folosesc ecranul pentru a face geometria și funcțiile matematice mult mai ușor de vizualizat. Copiii noștri s-au distrat de minune lucrând cu materiale reciclate la atelierul Think Green.",
+    description: "Am demarat activitățile oficiale în incinta școlii partenere. Elevii au participat la un atelier practic de prelucrare a lânii, iar noi am efectuat asistențe la orele de matematică și fizică.",
+    extendedText: "Observațiile s-au axat pe modul în care cadrele didactice germane folosesc ecranele interactive. Am notat că acestea sunt utilizate ca suport grafic activ, în timp ce exercițiile sunt rezolvate concomitent și pe caietele de clasă ale elevilor.",
     focus: "green",
-    tags: ["Prima zi de școală", "Reciclare", "Ore Interactive"],
+    tags: ["Job Shadowing", "Ecologie", "Integrare Tehnologică"],
     schedule: [
-      { time: "08:30", activity: "Primirea călduroasă și o primă întâlnire cu profesorii germani" },
-      { time: "09:30", activity: "Elevii noștri la atelierul de lucru manual și lână" },
-      { time: "11:00", activity: "Am asistat la o oră de matematică plină de tehnologie" },
-      { time: "12:30", activity: "Experimente în laboratorul de fizică" },
-      { time: "15:00", activity: "Discuții și schimb de impresii la o cafea în sala profesorală" }
+      { time: "08:30", activity: "Primirea oficială și ședința organizatorică" },
+      { time: "09:30", activity: "Participarea elevilor la atelierul ecologic 'Think Green'" },
+      { time: "11:00", activity: "Asistență la ora de matematică (utilizarea funcțiilor grafice)" },
+      { time: "12:30", activity: "Asistență în laboratorul de fizică" },
+      { time: "15:00", activity: "Sesiune de evaluare cu profesorii școlii gazdă" }
     ],
-    takeaway: "Am realizat că tehnologia trebuie doar să ajute gândirea elevului, nu să i-o înlocuiască.",
+    takeaway: "Tehnologia reprezintă un instrument de sprijin vizual, neînlocuind fundamentul scris al învățării.",
     accentColor: "from-emerald-600 to-teal-800",
     shadowingNotes: {
       observers: "Catedra de Științe",
-      focusArea: "Cum integrăm ecranele tactile fără să pierdem scrisul de mână",
+      focusArea: "Integrarea instrumentelor digitale în secvența didactică",
       keyObservations: [
-        "Ne-a impresionat calmul cu care se desfășoară ora, fără nicio grabă.",
-        "Profesorul desena o figură pe tablă, o mărea din degete, și cerea elevului să vina să adauge elemente.",
-        "Dulapurile de pe holuri îi ajută enorm pe copii să nu care ghiozdane grele."
+        "Profesorul utilizează ecranul interactiv pentru a modifica în timp real parametrii geometrici.",
+        "Elevii sunt implicați direct în operarea ecranului pentru a demonstra soluțiile găsite.",
+        "Infrastructura școlară, incluzând dulapurile individuale, contribuie la ordinea și ergonomia spațiului."
       ],
-      pedagogicalApplication: "Abia așteptăm să facem și noi aceleași fișe structurate care se potrivesc cu ce proiectăm pe tablă."
+      pedagogicalApplication: "Adoptarea fișelor de lucru structurate, sincronizate vizual cu materialul proiectat pe tabla inteligentă."
     },
     photos: generateMediaForDay(2, 13, 24)
   },
@@ -159,32 +159,32 @@ export const DAILY_JOURNAL: DayJournal[] = [
     id: 3,
     dayNumber: 3,
     date: "Joi, 21 Mai 2026",
-    title: "Ziua 3: Lecții ținute pe străzile orașului",
-    subtitle: "Cum am transformat un întreg oraș într-o sală de clasă",
-    location: "Centrul Vechi, Aachen",
+    title: "Activități de educație non-formală în mediul urban",
+    subtitle: "Aachen City Rallye și analiza patrimoniului cultural",
+    location: "Aachen",
     country: "Germania",
-    description: "Am decis să scoatem învățarea din clasă. Prin activitatea 'Aachen City Rallye', elevii au lucrat în echipe și au avut de rezolvat sarcini plimbându-se prin orașul vechi.",
-    extendedText: "Ne-am oprit la faimoasele izvoare termale Elisenbrunnen, unde am vorbit puțin despre termodinamică și căldura apei care iese din pământ, apoi am intrat în superbul Dom din Aachen. O surpriză emoționantă a fost vizita la o gelaterie unde ne-am revăzut cu o fostă elevă a liceului nostru, stabilită aici de mulți ani.",
+    description: "Ziua a fost dedicată activităților extracurriculare de orientare și recunoaștere. Prin activitatea 'Aachen City Rallye', elevii au lucrat în grupe pentru a parcurge un traseu documentar în centrul istoric.",
+    extendedText: "Traseul a inclus analiza caracteristicilor fizico-chimice ale apei termale la Elisenbrunnen și studiul arhitecturii Domului din Aachen. Vizita la Centre Charlemagne ne-a oferit modele de bune practici privind prezentarea interactivă a informațiilor istorice.",
     focus: "cultural",
-    tags: ["Domul din Aachen", "Izvoare Termale", "Comunitatea Noastră"],
+    tags: ["City Rallye", "Patrimoniu UNESCO", "Educație Non-formală"],
     schedule: [
-      { time: "09:00", activity: "Elevii pornesc în vânătoarea de indicii prin Aachen" },
-      { time: "11:00", activity: "Cuminți și impresionați în interiorul Domului" },
-      { time: "13:30", activity: "Mirosul de sulf și fizica apei termale la Elisenbrunnen" },
-      { time: "15:00", activity: "Am vizitat muzeul interactiv Centre Charlemagne" },
-      { time: "17:00", activity: "Bucuria revederii cu o fostă elevă de la Solomon Haliță" }
+      { time: "09:00", activity: "Startul aplicației practice de orientare urbană" },
+      { time: "11:00", activity: "Documentare istorică la Domul din Aachen" },
+      { time: "13:30", activity: "Analiza izvoarelor termale (Elisenbrunnen)" },
+      { time: "15:00", activity: "Studiul hărților digitale la Centre Charlemagne" },
+      { time: "17:00", activity: "Întâlnire de socializare cu un membru al comunității locale" }
     ],
-    takeaway: "Cea mai bună metodă de a învăța istorie și științe este să le atingi cu propria ta mână.",
+    takeaway: "Abordarea interdisciplinară în spații publice facilitează asimilarea practică a conceptelor.",
     accentColor: "from-amber-600 to-orange-800",
     shadowingNotes: {
-      observers: "Toți profesorii însoțitori",
-      focusArea: "Metode de învățare outdoor",
+      observers: "Cadrele didactice însoțitoare",
+      focusArea: "Eficiența aplicațiilor practice de tip 'Vânătoare de comori'",
       keyObservations: [
-        "Vânătoarea de comori i-a făcut pe copii să vorbească mult mai mult în engleză între ei.",
-        "Ecranele din muzeul Charlemagne arătau cum se schimbă orașul an de an, o lecție vizuală fantastică.",
-        "Pauzele și socializarea sunt la fel de importante ca și lecțiile formale."
+        "Sarcina de lucru în echipă a determinat comunicarea activă în limba engleză.",
+        "Panourile interactive din muzeu au menținut un grad ridicat de atenție din partea elevilor.",
+        "Alternarea sarcinilor cognitive cu deplasarea fizică a prevenit oboseala intelectuală."
       ],
-      pedagogicalApplication: "Ne propunem să facem un traseu similar de orientare și indicii chiar în Sângeorz-Băi."
+      pedagogicalApplication: "Crearea unui circuit local de orientare și recunoaștere istorică/geografică în proximitatea liceului nostru."
     },
     photos: generateMediaForDay(3, 25, 36)
   },
@@ -192,31 +192,31 @@ export const DAILY_JOURNAL: DayJournal[] = [
     id: 4,
     dayNumber: 4,
     date: "Vineri, 22 Mai 2026",
-    title: "Ziua 4: O oră perfectă de mate și 3 țări într-o singură zi",
-    subtitle: "Am văzut cum se predau sistemele și am mers la marginea Olandei",
+    title: "Analiza metodelor de calcul și studiu geografic în teren",
+    subtitle: "Sisteme de ecuații și deplasarea la granița triplă",
     location: "Aachen & Vaalserberg",
     country: "Germania · Belgia · Olanda",
-    description: "Dimineața am stat din nou în bănci și am luat notițe. Am asistat la o oră despre sisteme de ecuații predată excepțional. După-amiază, ne-am luat rucsacurile și am urcat în pădure la Vaalserberg.",
-    extendedText: "Pentru noi, profesorii de științe, ora de dimineață a fost o sursă imensă de inspirație. Apoi, sus la Dreiländereck, a fost un moment simbolic pentru noi toți: elevii noștri s-au ținut de mâini stând fiecare cu picioarele într-o țară diferită. Am simțit pe viu ce înseamnă libertatea Europei.",
+    description: "Am continuat programul de Job Shadowing la disciplina matematică, analizând metoda substituției. În a doua parte a programului, am organizat o aplicație practică de geografie la Dreiländereck.",
+    extendedText: "La clasă s-a observat eficiența utilizării codurilor cromatice pentru a diferenția variabilele în timpul calculelor. Deplasarea la granița dintre Germania, Belgia și Olanda a constituit un exercițiu practic de geografie politică și o demonstrație a liberei circulații europene.",
     focus: "stem",
-    tags: ["Ecuații Colorate", "Granița Triplă", "Natură"],
+    tags: ["Metodica Matematicii", "Geografie Aplicată", "Dreiländereck"],
     schedule: [
-      { time: "08:30", activity: "Cu carnețelul pe bancă la ora de matematică" },
-      { time: "11:45", activity: "Un moment dulce: am cântat La mulți ani unei eleve!" },
-      { time: "13:30", activity: "Urcușul prin pădure către granița cu Olanda și Belgia" },
-      { time: "16:00", activity: "Ne tragem sufletul la monumentul celor trei frontiere" }
+      { time: "08:30", activity: "Asistență la matematică: predarea sistemelor de ecuații" },
+      { time: "11:45", activity: "Moment organizatoric în cadrul școlii" },
+      { time: "13:30", activity: "Deplasare pe traseul montan către Vaalserberg" },
+      { time: "16:00", activity: "Aplicație practică la punctul de intersecție a frontierelor" }
     ],
-    takeaway: "Rigoarea germană la matematică, urmată de bucuria de a alerga liber prin pădure.",
+    takeaway: "Structurarea vizuală a informației matematice crește gradul de retenție al elevilor.",
     accentColor: "from-blue-700 to-cyan-800",
     shadowingNotes: {
-      observers: "Paul și Traian (Matematică & Fizică)",
-      focusArea: "Cum predăm ecuațiile fără ca elevii să se piardă în calcule",
+      observers: "Cadrele didactice de la disciplinele exacte",
+      focusArea: "Optimizarea explicațiilor algebrice",
       keyObservations: [
-        "Profesorul a marcat x-ul cu galben și y-ul cu albastru. Așa copiii nu au încurcat substituția.",
-        "Elevii nu aveau frică de a greși la tablă, profesorul îi încuraja permanent.",
-        "Explicația a durat 10 minute, restul de 40 de minute copiii doar au exersat."
+        "Identificarea vizuală a variabilelor prin culori (ex. x galben, y albastru) reduce confuzia în etapele de substituție.",
+        "Timpul alocat predării frontale este minimizat, prioritate având exercițiul individual la clasă.",
+        "Evaluarea formativă se face prin chemarea aleatorie la ecran a elevilor."
       ],
-      pedagogicalApplication: "Adoptăm imediat metoda culorilor pentru algebră la clasele a VII-a și a VIII-a."
+      pedagogicalApplication: "Utilizarea constantă a evidențierii cromatice pentru demonstrațiile algebrice de la tablă."
     },
     photos: generateMediaForDay(4, 37, 48)
   },
@@ -224,31 +224,31 @@ export const DAILY_JOURNAL: DayJournal[] = [
     id: 5,
     dayNumber: 5,
     date: "Sâmbătă, 23 Mai 2026",
-    title: "Ziua 5: Fascinația goticului și zborul deasupra Rinului",
-    subtitle: "Excursie în Köln: Parcul de Sculpturi și uriașul Dom",
+    title: "Aplicații de fizică și arhitectură în spațiul urban",
+    subtitle: "Vizită de documentare tehnică și culturală în Köln",
     location: "Köln",
     country: "Germania",
-    description: "Am dedicat această zi superbei metropole Köln. După o plimbare printr-un parc de sculpturi tare ciudate, dar interesante, ne-am dus direct spre Catedrala Kölner Dom.",
-    extendedText: "Când ieși din gară și vezi uriașa catedrală, pur și simplu rămâi fără cuvinte. Le-am explicat copiilor pe scurt cum stau acele pietre uriașe în picioare datorită arcelor și fizicii, apoi ne-am relaxat traversând fluviul Rin cu telegondola.",
+    description: "Deplasarea în orașul Köln a avut drept scop analizarea elementelor de arhitectură monumentală și a infrastructurii tehnice. Obiectivele vizate au fost Parcul de Sculpturi și Catedrala Kölner Dom.",
+    extendedText: "Catedrala gotică a servit drept model pentru explicarea conceptelor de mecanică statică, ilustrând modul în care arcele butante distribuie greutatea structurii. Traversarea fluviului Rin cu telegondola a permis o scurtă trecere în revistă a forțelor de tensiune și frecare.",
     focus: "cultural",
-    tags: ["Catedrala din Köln", "Plimbare cu Telegondola", "Sculpturi"],
+    tags: ["Fizica Structurilor", "Kölner Dom", "Mecanică Aplicată"],
     schedule: [
-      { time: "09:00", activity: "Am ajuns în Köln și am luat la pas parcul cu sculpturi" },
-      { time: "11:30", activity: "Sute de poze pe faimosul pod cu lacăte (Hohenzollern)" },
-      { time: "13:00", activity: "Mici și uimiți în fața colosalului Dom" },
-      { time: "15:30", activity: "Am privit orașul de sus din telecabină" }
+      { time: "09:00", activity: "Analiza spațială a obiectivelor din Parcul de Sculpturi" },
+      { time: "11:30", activity: "Traseu pietonal pe podul feroviar Hohenzollern" },
+      { time: "13:00", activity: "Studiul elementelor structurale la Kölner Dom" },
+      { time: "15:30", activity: "Observarea mecanismelor de transport pe cablu (telegondola)" }
     ],
-    takeaway: "Arhitectura este doar matematică frumos aranjată în spațiu.",
+    takeaway: "Conceptele teoretice de mecanică pot fi explicate eficient utilizând exemple din ingineria civilă.",
     accentColor: "from-teal-600 to-indigo-800",
     shadowingNotes: {
-      observers: "Întreaga delegație",
-      focusArea: "Observarea fenomenelor fizice în arhitectură și transport",
+      observers: "Membrii delegației",
+      focusArea: "Identificarea principiilor fizicii în mediul construit",
       keyObservations: [
-        "Un prilej perfect pentru o discuție liberă despre centrul de greutate și distribuția forțelor.",
-        "La telecabină am vorbit despre tensiunea în cablu și frecare.",
-        "Parcul a fost un exercițiu bun de a privi arta și de a-i găsi geometria."
+        "Corelarea vizuală între înălțimea turlelor și necesitatea elementelor de susținere laterale.",
+        "Discuțiile libere pe marginea funcționării telecabinei au consolidat noțiunile de fizică clasa a IX-a.",
+        "Am remarcat funcția estetică, dar și tehnică a instalațiilor din oțel din parc."
       ],
-      pedagogicalApplication: "La orele de mecanică, putem folosi pozele cu Domul pentru a le explica elevilor forțele."
+      pedagogicalApplication: "Includerea imaginilor de detaliu cu elemente arhitecturale în prezentările destinate orelor de fizică."
     },
     photos: generateMediaForDay(5, 49, 60)
   },
@@ -256,31 +256,31 @@ export const DAILY_JOURNAL: DayJournal[] = [
     id: 6,
     dayNumber: 6,
     date: "Sâmbătă, 23 Mai 2026",
-    title: "Ziua 6: Matematică din hârtie și rămas-bun",
-    subtitle: "Atelierul de origami, masa festivă și diplomele Europass",
+    title: "Sinteza metodelor și validarea rezultatelor",
+    subtitle: "Atelier de geometrie spațială și certificarea Europass",
     location: "Geschwister-Scholl-Gymnasium",
     country: "Germania",
-    description: "Orice experiență frumoasă are și un final. Ne-am adunat la școală pentru o ultimă activitate genială: copiii au învățat geometrie făcând origami și poliedre din hârtie colorată.",
-    extendedText: "Ne-am luat rămas bun de la colegii noștri germani cu multe îmbrățișări. Conducerea școlii ne-a pregătit o masă festivă minunată și a înmânat solemn certificatele Europass tuturor. Plecăm acasă mai bogați sufletește și profesional.",
+    description: "Ultima sesiune în școala gazdă a fost dedicată unui atelier interdisciplinar. Elevii au aplicat concepte de geometrie spațială prin construirea poliedrelor regulate folosind tehnica origami.",
+    extendedText: "La nivel administrativ, mobilitatea a fost concluzionată printr-o ședință de evaluare cu partenerii germani. Activitățile s-au finalizat cu acordarea oficială a Certificatelor Europass Mobilitate tuturor participanților, confirmând validitatea competențelor dobândite.",
     focus: "cultural",
-    tags: ["Origami", "Diplome Europass", "Masa Festivă"],
+    tags: ["Geometrie Aplicată", "Evaluare Finală", "Europass"],
     schedule: [
-      { time: "08:30", activity: "Am împăturit hârtie și am obținut figuri geometrice perfecte" },
-      { time: "10:30", activity: "Ultima asistență la clasă: derivate și funcții" },
-      { time: "12:00", activity: "Am primit cu mândrie certificatele noastre Europass" },
-      { time: "13:30", activity: "Am mâncat covrigi pretzel și ne-am luat la revedere de la prietenii noștri" }
+      { time: "08:30", activity: "Atelier tehnic de construcție a poliedrelor (Origami)" },
+      { time: "10:30", activity: "Sesiune finală de asistență la clasă" },
+      { time: "12:00", activity: "Decernarea Certificatelor Europass Mobilitate" },
+      { time: "13:30", activity: "Prânz comun și formalitățile de încheiere a programului" }
     ],
-    takeaway: "Avem colegi minunați în Germania și ne întoarcem cu un bagaj uriaș de cunoștințe.",
+    takeaway: "Certificarea formală a experienței consolidează profilul academic al participanților.",
     accentColor: "from-indigo-600 to-emerald-700",
     shadowingNotes: {
-      observers: "Prof. Paul Frunză & Prof. Traian Petrașcu",
-      focusArea: "Metode alternative de fixare a noțiunilor geometrice",
+      observers: "Echipa de implementare a proiectului",
+      focusArea: "Integrarea manualității în rezolvarea sarcinilor matematice",
       keyObservations: [
-        "Origami-ul impune liniște, concentrare și extrem de multă precizie.",
-        "Elevii colaborează mult mai bine când au ceva de construit cu propriile mâini.",
-        "Momentul festiv i-a făcut pe copii să fie foarte mândri de munca lor."
+        "Construcția fizică a figurilor dezvoltă exponențial capacitatea de reprezentare tridimensională.",
+        "Sarcina a impus rigoare, precizie și o abordare procedurală clară.",
+        "Validarea instituțională (Europass) are un impact pozitiv semnificativ asupra motivației elevilor."
       ],
-      pedagogicalApplication: "La Sângeorz-Băi, vom aduce hârtia colorată la orele de geometrie spațială!"
+      pedagogicalApplication: "Introducerea unor ore de lucru manual cu hârtie pentru vizualizarea corpurilor rotunde și a poliedrelor."
     },
     photos: generateMediaForDay(6, 61, 72)
   }
@@ -291,54 +291,54 @@ export const ALL_PHOTOS: DayPhoto[] = DAILY_JOURNAL.flatMap((day) => day.photos)
 export const PEDAGOGICAL_PILLARS: PedagogicalPillar[] = [
   {
     id: "interactive-tech",
-    title: "Ecranele devin caiete",
-    subtitle: "Cum folosim ecranele la orele de matematică",
+    title: "Integrarea Eloanelor Interactive",
+    subtitle: "Analiza demersului didactic la disciplina Matematică",
     iconName: "Variable",
-    observer: "Noi am observat și notat pentru voi",
-    summary: "Când am intrat în clasa de matematică, ne-a bucurat să vedem naturalețea profesorului. Nu stătea în spatele catedrei, ci lucra cot la cot cu elevii la un ecran uriaș. Au folosit raportoare virtuale pe care le mișcau cu degetul direct pe tablă.",
+    observer: "Raport de observare a actului predării",
+    summary: "În timpul asistențelor, am documentat o utilizare fluentă a echipamentelor tactile. Cadrul didactic utilizează ecranul ca pe un instrument colaborativ; pașii de calcul sunt introduși direct pe suprafața digitală cu ajutorul instrumentelor geometrice virtuale.",
     highlights: [
-      "Copiii nu scriu după dictare; profesorul începe calculul pe ecran, elevul îl continuă.",
-      "Se folosesc foi de fundal milimetric direct pe ecran pentru geometrie.",
-      "Culoarea ajută enorm: x era întotdeauna verde, y era albastru.",
-      "Nimeni nu are emoții să iasă la tablă, este o activitate comună și relaxată."
+      "Secvențele de calcul sunt dezvoltate incremental pe ecran, sub îndrumarea profesorului.",
+      "Cadrul didactic utilizează foi de fundal milimetric proiectate pentru acuratețea desenului.",
+      "Codificarea cromatică a variabilelor sprijină diferențierea vizuală rapidă.",
+      "Participarea elevilor la tablă are loc într-un climat educațional centrat pe colaborare."
     ],
-    classroomObservation: "Ce ne-a plăcut cel mai mult a fost că profesorul punea întrebarea și se dădea la o parte, lăsând clasa să se consulte și să propună soluții.",
-    transferToRomania: "Ne întoarcem deciși să nu mai folosim tabla inteligentă doar ca proiector, ci să invităm elevii să atingă și să construiască matematică direct pe ea.",
-    techStack: ["Ecran Tactil", "Culori Dinamice", "Răbdare", "Colaborare"]
+    classroomObservation: "Profesorul acționează preponderent ca facilitator. După expunerea problemei, acesta permite clasei să dezbată și să propună algoritmii de rezolvare.",
+    transferToRomania: "Intenționăm extinderea funcționalității tablelor interactive din dotare, trecând de la rolul pasiv (proiecție) la operarea directă de către elevi.",
+    techStack: ["Ecrane Tactile", "Diferențiere Cromatică", "Soft Geometrie", "Colaborare Activă"]
   },
   {
     id: "hybrid-learning",
-    title: "Laboratorul prinde viață",
-    subtitle: "Măsurători cu tableta în loc de caiet",
+    title: "Măsurători digitale în laborator",
+    subtitle: "Automatizarea colectării de date experimentale",
     iconName: "Atom",
-    observer: "Ce am reținut din laboratorul de fizică",
-    summary: "Pentru noi, care predăm științe, a fost de vis. Elevii aveau niște mici senzori pe masă pe care îi scufundau în apă caldă, iar temperatura apărea instant ca un grafic curbat pe tabletele pe care le primeau la începutul orei.",
+    observer: "Raport de observare a experimentelor fizice",
+    summary: "Asistența la orele de științe a reliefat eficiența conectării senzorilor fizici la terminale mobile. Pe parcursul experimentelor termice, elevii au înregistrat variațiile de temperatură, iar dispozitivele au generat automat curbele aferente pe ecrane.",
     highlights: [
-      "Trusa de fizică este modernă, sigură și foarte ușor de folosit de către elevi.",
-      "Datele ajung prin Bluetooth direct pe dispozitivul elevului.",
-      "Nu se pierde timp dictând pașii experimentului; toți îi au încărcați pe platformă.",
-      "Relația cauză-efect este vizibilă instantaneu pe ecran."
+      "Infrastructura laboratorului este proiectată pentru siguranță și manevrare rapidă a echipamentelor.",
+      "Transmisia datelor prin conexiuni wireless reduce marja de eroare la preluarea valorilor.",
+      "Elevii accesează permanent fișele de lucru stocate pe platforma școlii.",
+      "Graficele sunt analizate imediat, facilitând corelarea cu ecuațiile teoretice."
     ],
-    classroomObservation: "Spre deosebire de laboratoarele clasice, aici gălăgia era de fapt o 'gălăgie de lucru'. Fiecare se contrazicea, calcula și verifica pe tabletă.",
-    transferToRomania: "Vom cere dotarea cu seturi de senzori mici și rapizi pe care să îi putem conecta la telefoanele elevilor noștri.",
-    techStack: ["Senzori Bluetooth", "Simulări Grafice", "Mese de lucru adaptate", "Entuziasm"]
+    classroomObservation: "Activitatea se desfășoară în perechi, elevii manifestând autonomie deplină în asamblarea și operarea truselor de senzori.",
+    transferToRomania: "Propunem achiziționarea unor kit-uri de senzori wireless compatibile cu terminalele mobile pentru modernizarea laboratoarelor proprii.",
+    techStack: ["Senzori Wireless", "Tablete Integrate", "Ergonomie", "Autonomie"]
   },
   {
     id: "collaborative-teamwork",
-    title: "Europa la pas",
-    subtitle: "Cum se clădesc caracterele în afara școlii",
+    title: "Educația în afara spațiului școlar",
+    subtitle: "Învățarea bazată pe sarcini de echipă și contexte reale",
     iconName: "Users2",
-    observer: "Lecții învățate direct din comunitate",
-    summary: "Cel mai bun lucru pe care îl face acest proiect este să deschidă minți. Am văzut copii de clasa a IX-a din România împărțind același ghem de lână, la atelierul ecologic, cu tineri din Germania, glumind în engleză.",
+    observer: "Concluzii privind formarea transversală",
+    summary: "Metodele non-formale aplicate pe parcursul mobilității au demonstrat o eficiență sporită în consolidarea relațiilor interpersonale și a abilităților lingvistice. Atât atelierele practice, cât și activitățile de orientare în teren au implicat cooperarea directă între elevi.",
     highlights: [
-      "Atelierul de lână i-a făcut pe copii să se relaxeze și să vorbească unii cu alții.",
-      "Vânătoarea de comori prin oraș a fost o dovadă excelentă de descurcăre și spirit de orientare.",
-      "Trecerea granițelor la pas prin pădure le-a arătat ce înseamnă cu adevărat libertatea în Uniunea Europeană.",
-      "Plierea hârtiei la origami a unit arta cu logica."
+      "Atelierul de reciclare a favorizat comunicarea informală între elevii români și germani.",
+      "Aplicațiile de orientare (City Rallye) au solicitat abilități decizionale și planificare spațială.",
+      "Traseul comun pe teritoriul a trei state europene a constituit un exercițiu clar de conștientizare civică.",
+      "Activitățile practice precum origami-ul au stimulat gândirea procedurală."
     ],
-    classroomObservation: "Zâmbetele de pe fețele lor când și-au primit certificatele Europass la masă ne-au demonstrat că munca noastră din ultimele luni a meritat din plin.",
-    transferToRomania: "Promitem să organizăm cât mai multe activități practice în aer liber, ateliere de meșteșugit și lecții în pădurile noastre.",
-    techStack: ["Curiozitate", "Aer Liber", "Prietenie", "Curaj"]
+    classroomObservation: "Interacțiunea în limbi străine a devenit naturală prin prisma obiectivului comun impus de sarcinile practice de grup.",
+    transferToRomania: "Planificăm structurarea unui calendar de activități extracurriculare centrate pe aplicații practice și orientare în proximitatea geografică a liceului.",
+    techStack: ["Educație Outdoor", "Planificare", "Lucru în Echipă", "Abilități Civice"]
   }
 ];
 
@@ -347,32 +347,32 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 1,
     author: "Prof. Frunză Paul-Adrian",
     role: "Participant Job Shadowing",
-    institution: "Catedra de Matematică",
-    quote: "A fost o săptămână în care am redevenit eu însumi elev. Când vezi un coleg german cum stă printre bănci și îi lasă pe copii să se joace cu ecuațiile pe tablă folosind degetele, îți dai seama că la asta trebuie să ajungem și noi. Plec de aici extrem de motivat.",
-    pillar: "Orele de Matematică"
+    institution: "Disciplina Matematică",
+    quote: "Asistența la orele de matematică a evidențiat claritatea pe care o aduce tehnologia atunci când este folosită metodic. Utilizarea culorilor pentru a explica metoda substituției pe tabla interactivă este o practică pe care intenționez să o aplic direct la clasele gimnaziale.",
+    pillar: "Didactica Matematicii"
   },
   {
     id: 2,
     author: "Prof. Petrașcu Traian",
     role: "Participant Job Shadowing",
-    institution: "Catedra de Fizică",
-    quote: "Graficele făcute cu creionul pe hârtie au farmecul lor, dar când am văzut copiii cum prind conceptul de răcire a apei uitându-se cum curge curba pe o tabletă conectată la senzor... e uluitor. Vreau neapărat să integrăm aceste dispozitive inteligente la fizică.",
-    pillar: "Laboratorul de Fizică"
+    institution: "Disciplina Fizică",
+    quote: "Posibilitatea de a urmări generarea unui grafic pe tabletă, sincron cu desfășurarea experimentului real, modifică fundamental înțelegerea fenomenelor. Integrarea senzorilor mobili trebuie să devină o prioritate pentru standardizarea laboratoarelor noastre.",
+    pillar: "Fizică și Științe Aplicate"
   },
   {
     id: 3,
-    author: "Director Prof. Sîngerozan Varvara",
-    role: "Coordonator Proiect",
+    author: "Prof. Sîngerozan Varvara",
+    role: "Director / Coordonator Proiect",
     institution: "Management Școlar",
-    quote: "Peste tot auzeai doar germană, engleză și română la un loc. Să vezi elevii de la noi din liceu discutând cu atâta curaj și degajare, ajutându-se reciproc... m-a făcut să mă simt tare mândră de școala noastră. Această experiență ne-a deschis tuturor orizontul.",
-    pillar: "Spiritul European"
+    quote: "Proiectul a dovedit capacitatea elevilor noștri de a se integra cu succes într-un mediu academic european. Modul în care au colaborat cu elevii școlii gazdă atestă calitatea actului educațional pe care îl desfășurăm la Liceul Teoretic „Solomon Haliță”.",
+    pillar: "Management și Colaborare"
   },
   {
     id: 4,
     author: "Prof. Hodoroga Florin",
     role: "Profesor Însoțitor",
-    institution: "Catedra de Geografie",
-    quote: "Geografia înseamnă să simți pământul sub tălpi. Excursia la punctul unde se unesc cele 3 țări a fost cel mai bun mod de a le arăta copiilor că barierele există doar pe hărți. A fost o lecție minunată de respect pentru natură și libertate.",
-    pillar: "Educație în Natură"
+    institution: "Disciplina Geografie",
+    quote: "Studiul direct în teren, fie că discutăm de granița triplă de la Vaalserberg sau de structura urbană din Köln, asigură o fixare net superioară a conceptelor geografice comparativ cu metodele expozitive tradiționale.",
+    pillar: "Educație Ecologică"
   }
 ];
