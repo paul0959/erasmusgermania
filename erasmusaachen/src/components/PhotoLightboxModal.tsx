@@ -24,9 +24,9 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
     
     if (photo) {
       bgMusic = new Audio('/muzica.mp3');
-      bgMusic.loop = true; // Muzica se repetă
-      bgMusic.volume = 0.35; // Volum ambiental
-      bgMusic.play().catch(err => console.log("Autoplay-ul audio a fost blocat de browser.", err));
+      bgMusic.loop = true;
+      bgMusic.volume = 0.35;
+      bgMusic.play().catch(err => console.log("Autoplay-ul audio a fost blocat.", err));
     }
 
     return () => {
@@ -37,22 +37,18 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
     };
   }, [!!photo]);
 
-  // 2. Rularea Automată (Slideshow Cinematic Reparat)
+  // 2. Rularea Automată la 2 secunde
   useEffect(() => {
-    // Dacă nu e deschisă nicio poză, nu facem nimic
     if (!photo) return;
     
-    // Setăm un cronometru stabil care trece la următoarea poză după 4 secunde
+    // Setăm cronometrul la 2 secunde (2000 ms)
     const timer = setTimeout(() => {
       const currentIndex = ALL_PHOTOS.findIndex((p) => p.id === photo.id);
       const nextIndex = (currentIndex + 1) % ALL_PHOTOS.length;
       onSelectPhoto(ALL_PHOTOS[nextIndex]);
-    }, 4000); // 4000 milisecunde = 4 secunde
+    }, 2000);
 
-    // Curățăm cronometrul vechi când poza se schimbă, pentru a nu se suprapune
     return () => clearTimeout(timer);
-    
-    // ATENȚIE: Am folosit strict photo.id pentru a preveni resetarea greșită a cronometrului
   }, [photo?.id]);
 
   // 3. Navigare manuală din taste
@@ -88,21 +84,22 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
 
   return (
     <div 
-      className="fixed inset-0 z-[999999] bg-black flex items-center justify-center overflow-hidden touch-pan-y"
+      // Am adăugat "pt-24 sm:pt-28" pentru a coborî totul sub antetul meniului
+      className="fixed inset-0 z-[999999] bg-black flex flex-col items-center justify-center pt-24 sm:pt-28 pb-4 px-2 overflow-hidden touch-pan-y"
       onClick={onClose} 
       onTouchStart={handleTouchStart} 
       onTouchMove={handleTouchMove} 
       onTouchEnd={handleTouchEnd}
     >
-      {/* Container Fullscreen pentru media */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+      <div className="relative w-full h-full flex items-center justify-center">
         {photo.mediaType === 'video' ? (
           <video 
             key={photo.id}
             src={photo.imageSrc} 
             controls 
             autoPlay 
-            className="w-full h-full object-contain animate-in fade-in duration-1000" 
+            // max-h-[75vh] limitează înălțimea pozei ca să nu urce sub meniu
+            className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain animate-in fade-in duration-500" 
             onClick={(e) => e.stopPropagation()} 
           />
         ) : (
@@ -110,31 +107,31 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
             key={photo.id}
             src={photo.imageSrc} 
             alt={photo.title} 
-            className="w-full h-full object-contain animate-in fade-in duration-1000" 
+            className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain animate-in fade-in duration-500" 
             onClick={(e) => e.stopPropagation()} 
           />
         )}
       </div>
 
-      {/* Buton Exit poziționat sus-dreapta */}
+      {/* Butonul Exit poziționat mai jos pentru a nu se suprapune cu meniul */}
       <button 
         onClick={onClose} 
-        className="absolute top-6 right-6 sm:top-8 sm:right-8 z-[1000000] p-3 sm:p-4 rounded-full bg-black/40 hover:bg-black/80 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
+        className="absolute top-24 right-4 sm:top-28 sm:right-8 z-[1000000] p-3 sm:p-4 rounded-full bg-black/40 hover:bg-black/80 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
       >
         <X className="w-6 h-6 sm:w-8 sm:h-8" />
       </button>
 
-      {/* Săgețile de navigare ascunse pe mobil pentru un ecran curat, vizibile doar pe PC dacă pui mouse-ul pe margine */}
+      {/* Săgețile de navigare */}
       <button 
         onClick={(e) => { e.stopPropagation(); handlePrev(); }} 
-        className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white opacity-0 hover:opacity-100 transition-all border border-white/10"
+        className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 mt-12 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white opacity-0 hover:opacity-100 transition-all border border-white/10"
       >
         <ChevronLeft className="w-8 h-8" />
       </button>
 
       <button 
         onClick={(e) => { e.stopPropagation(); handleNext(); }} 
-        className="hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white opacity-0 hover:opacity-100 transition-all border border-white/10"
+        className="hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 mt-12 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white opacity-0 hover:opacity-100 transition-all border border-white/10"
       >
         <ChevronRight className="w-8 h-8" />
       </button>
