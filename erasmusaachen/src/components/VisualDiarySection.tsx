@@ -15,9 +15,9 @@ export const VisualDiarySection: React.FC = () => {
   const [lightboxPhoto, setLightboxPhoto] = useState<DayPhoto | null>(null);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [touchDeltaX, setTouchDeltaX] = useState(0);
-  const [isSwiping, setIsSwiping] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragDeltaX, setDragDeltaX] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -25,7 +25,6 @@ export const VisualDiarySection: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // TOATE POZELE SUNT AFIȘATE DIRECT FĂRĂ FILTRE
   const currentPhotos = ALL_PHOTOS;
   const totalCount = currentPhotos.length;
   const safeIndex = activePhotoIndex % Math.max(1, totalCount);
@@ -45,23 +44,25 @@ export const VisualDiarySection: React.FC = () => {
     audioSystem.playPhotoClickSound();
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setIsSwiping(true);
-    setTouchStartX(e.touches[0].clientX);
-    setTouchDeltaX(0);
+  const handleDragStart = (e: React.TouchEvent | React.MouseEvent) => {
+    setIsDragging(true);
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    setDragStartX(clientX);
+    setDragDeltaX(0);
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isSwiping) return;
-    setTouchDeltaX(e.touches[0].clientX - touchStartX);
+  const handleDragMove = (e: React.TouchEvent | React.MouseEvent) => {
+    if (!isDragging) return;
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+    setDragDeltaX(clientX - dragStartX);
   };
 
-  const handleTouchEnd = () => {
-    if (!isSwiping) return;
-    setIsSwiping(false);
-    if (touchDeltaX > 40) handlePrev();
-    else if (touchDeltaX < -40) handleNext();
-    setTouchDeltaX(0);
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    if (dragDeltaX > 50) handlePrev();
+    else if (dragDeltaX < -50) handleNext();
+    setDragDeltaX(0);
   };
 
   const getTranslateSpacing = () => {
@@ -82,10 +83,16 @@ export const VisualDiarySection: React.FC = () => {
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-[#172738] tracking-tight">Arhiva Completă</h2>
         </div>
 
-        {/* S-A ELIMINAT BARA CU FILTRELE PE LOCAȚII */}
-
-        <div className="relative w-full max-w-6xl mx-auto h-[380px] xs:h-[420px] sm:h-[500px] lg:h-[540px] flex items-center justify-center overflow-hidden touch-pan-y"
-          onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+        <div 
+          className="relative w-full max-w-6xl mx-auto h-[380px] xs:h-[420px] sm:h-[500px] lg:h-[540px] flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
+          onTouchStart={handleDragStart}
+          onTouchMove={handleDragMove}
+          onTouchEnd={handleDragEnd}
+        >
           <div className="relative w-full h-full flex items-center justify-center">
             {currentPhotos.map((photo, idx) => {
               let offset = idx - safeIndex;
@@ -96,13 +103,14 @@ export const VisualDiarySection: React.FC = () => {
               const isVisible = Math.abs(offset) <= 2;
               if (!isVisible) return null;
 
-              const translateX = offset * getTranslateSpacing();
+              const baseTranslateX = offset * getTranslateSpacing();
+              const translateX = baseTranslateX + (isDragging ? dragDeltaX * 0.6 : 0);
               const scale = isCenter ? (windowWidth < 640 ? 1.03 : 1.06) : 0.85;
 
               return (
-                <div key={photo.id} onClick={() => { isCenter ? handleCardClick(photo) : setActivePhotoIndex(idx); audioSystem.playSelectSound(); }}
-                  style={{ position: 'absolute', transform: `translateX(${translateX}px) scale(${scale})`, zIndex: isCenter ? 30 : 20 - Math.abs(offset) * 5, opacity: isCenter ? 1 : Math.max(0.45, 1 - Math.abs(offset) * 0.28), transition: isSwiping ? 'none' : 'transform 0.45s, opacity 0.45s' }}
-                  className={`w-[230px] xs:w-[260px] sm:w-[320px] lg:w-[360px] h-[330px] xs:h-[370px] sm:h-[440px] lg:h-[490px] rounded-[24px] sm:rounded-[28px] overflow-hidden cursor-pointer transition-shadow duration-300 bg-slate-900 ${isCenter ? 'shadow-2xl ring-1 ring-slate-900/10' : 'shadow-md hover:opacity-90'}`}>
+                <div key={photo.id} onClick={() => { if(!isDragging || Math.abs(dragDeltaX) < 10) { isCenter ? handleCardClick(photo) : setActivePhotoIndex(idx); audioSystem.playSelectSound(); } }}
+                  style={{ position: 'absolute', transform: `translateX(${translateX}px) scale(${scale})`, zIndex: isCenter ? 30 : 20 - Math.abs(offset) * 5, opacity: isCenter ? 1 : Math.max(0.45, 1 - Math.abs(offset) * 0.28), transition: isDragging ? 'none' : 'transform 0.45s, opacity 0.45s' }}
+                  className={`w-[230px] xs:w-[260px] sm:w-[320px] lg:w-[360px] h-[330px] xs:h-[370px] sm:h-[440px] lg:h-[490px] rounded-[24px] sm:rounded-[28px] overflow-hidden transition-shadow duration-300 bg-slate-900 ${isCenter ? 'shadow-2xl ring-1 ring-slate-900/10' : 'shadow-md hover:opacity-90'}`}>
                   <PhotoCardViewer photo={photo} showCaption={false} aspectRatio="square" />
                 </div>
               );
