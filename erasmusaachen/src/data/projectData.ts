@@ -10,7 +10,7 @@ export interface Testimonial { id: number; author: string; role: string; institu
 export interface ParticipatingTeacher { name: string; title: string; role: string; roleType: 'coordinator' | 'escort' | 'shadowing'; disciplines: string; jobShadowingFocus: string; description: string; }
 
 export const PARTICIPATING_TEACHERS: ParticipatingTeacher[] = [
-  { name: "Prof. Sîngerozan Varvara", title: "Director", role: "Coordonator Proiect", roleType: "coordinator", disciplines: "Management Educațional", jobShadowingFocus: "Analiza managementului școlar european și a strategiilor de internaționalizare.", description: "În calitate de coordonator al proiectului Erasmus+, am vizat stabilirea unui parteneriat educațional pe termen lung cu Geschwister-Scholl-Gymnasium și integrarea bunelor practici observate la nivelul managementului instituțional." },
+  { name: "Prof. Sîngeorzan Varvara", title: "Director", role: "Coordonator Proiect", roleType: "coordinator", disciplines: "Management Educațional", jobShadowingFocus: "Analiza managementului școlar european și a strategiilor de internaționalizare.", description: "În calitate de coordonator al proiectului Erasmus+, am vizat stabilirea unui parteneriat educațional pe termen lung cu Geschwister-Scholl-Gymnasium și integrarea bunelor practici observate la nivelul managementului instituțional." },
   { name: "Prof. Hodoroga Florin", title: "Profesor", role: "Însoțitor Elevi", roleType: "escort", disciplines: "Geografie", jobShadowingFocus: "Integrarea metodelor de educație outdoor în studiul geografiei și ecologiei.", description: "Activitatea mea s-a concentrat pe organizarea și coordonarea aplicațiilor practice în teren, facilitând elevilor recunoașterea reperelor geografice și înțelegerea conceptelor de mediu din perspectivă practică." },
   { name: "Prof. Frunză Paul-Adrian", title: "Profesor", role: "Participant Job Shadowing", roleType: "shadowing", disciplines: "Matematică & Informatică", jobShadowingFocus: "Eficiența utilizării ecranelor interactive în predarea științelor exacte.", description: "Am asitat la orele de matematică pentru a documenta modalitățile prin care tehnologia tactilă poate sprijini rezolvarea exercițiilor la clasă, menținând în același timp rigoarea etapelor de calcul." },
   { name: "Prof. Petrașcu Traian", title: "Profesor", role: "Participant Job Shadowing", roleType: "shadowing", disciplines: "Fizică", jobShadowingFocus: "Digitalizarea experimentelor școlare și utilizarea senzorilor în laborator.", description: "Am urmărit integrarea instrumentelor de măsurare digitală în orele de fizică, analizând modul în care elevii generează și interpretează date experimentale utilizând tabletele și senzorii electronici." }
@@ -329,7 +329,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 3,
-    author: "Director Prof. Sîngerozan Varvara",
+    author: "Director Prof. Sîngeorzan Varvara",
     role: "Coordonator Proiect Erasmus+",
     institution: "Management Instituțional",
     quote: "Proiectul a certificat capacitatea elevilor și cadrelor noastre didactice de a se adapta și integra cu succes într-un sistem academic internațional. Calitatea colaborării directe pe care echipa noastră a avut-o cu reprezentanții școlii gazdă confirmă standardele solide ale educației oferite de Liceul Teoretic „Solomon Haliță”.",
