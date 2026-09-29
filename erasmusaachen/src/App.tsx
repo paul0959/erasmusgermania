@@ -15,14 +15,14 @@ import { Footer } from './components/Footer';
 import { DayDetailModal } from './components/DayDetailModal';
 import { ProjectDossierModal } from './components/ProjectDossierModal';
 import { PhotoLightboxModal } from './components/PhotoLightboxModal';
-import { DAILY_JOURNAL, DayJournal, DayPhoto } from './data/projectData';
+import { DAILY_JOURNAL } from './data/projectData';
+import type { DayJournal, DayPhoto } from './data/projectData';
 import { audioSystem } from './utils/audioSystem';
 
 export default function App() {
   const [selectedDay, setSelectedDay] = useState<DayJournal | null>(null);
   const [dossierOpen, setDossierOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState<DayPhoto | null>(null);
-  const [galleryDayFilter, setGalleryDayFilter] = useState<number>(0);
 
   const handleSelectDay = (day: DayJournal) => {
     setSelectedDay(day);
@@ -42,8 +42,7 @@ export default function App() {
     audioSystem.playPhotoClickSound();
   };
 
-  const handleNavigateToGeneralGallery = (dayNumber: number) => {
-    setGalleryDayFilter(dayNumber);
+  const handleNavigateToGeneralGallery = () => {
     const el = document.getElementById('galerie');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -54,23 +53,14 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white relative">
       
-      {/* 
-        ========================================================================
-        FUNDAL ABSTRACT TRANSPARENT PE CROMATICĂ DESCHISĂ
-        ========================================================================
-      */}
       <AbstractHolographicBackdrop />
 
-      {/* Navigație Instituțională */}
       <Navbar onOpenDossier={() => {
         setDossierOpen(true);
         audioSystem.playSelectSound();
       }} />
 
-      {/* Conținut Principal Structurat Profesional */}
       <main className="flex-1 relative z-10">
-        
-        {/* 1. Secțiune Hero Instituțională (Titlu, 19–23 Mai 2026, Fără Număr Fotografii la Delegație) */}
         <HeroSection 
           onOpenTeacherDossier={() => {
             setDossierOpen(true);
@@ -78,47 +68,21 @@ export default function App() {
           }}
         />
 
-        {/* 
-          ======================================================================
-          2. JURNALUL PE ZILE: CARTONAȘE MARI ÎN CONTRAST CU DERULARE & REFLEXII
-          La deschidere: se deschide pe aproape întreaga pagină cu scurt text și poza lângă
-          ======================================================================
-        */}
         <Hologram3DStage
           onSelectDayDetails={handleSelectDay}
           onSelectPhoto={handleSelectPhoto}
           onNavigateToGeneralGallery={handleNavigateToGeneralGallery}
         />
 
-        {/* 3. Spotlight Job Shadowing (Didactica Matematicii & Fizicii · Prof. Frunză Paul & Prof. Petrașcu Traian) */}
         <JobShadowingSpotlight />
 
-        {/* 
-          ======================================================================
-          4. GALERIE FOTO (DESIGN IDENTIC CU SCREENSHOT-UL DRIBBLE ÎNCĂRCAT)
-          Pastile rotunjite, card central proeminent cu carduri laterale, butoane circulare jos
-          La clic pe poze: se deschide doar poza la dimensiune mare, fără text!
-          ======================================================================
-        */}
-        <GallerySection 
-          onSelectDayById={handleSelectDayById} 
-          externalDayFilter={galleryDayFilter}
-        />
+        <GallerySection />
 
-        {/* 5. Mărturii ale Cadrelor Didactice & Rezultate Concrete */}
         <OutcomesAndVoices />
       </main>
 
-      {/* Subsol Oficial Erasmus+ & Liceul Solomon Haliță */}
       <Footer />
-
-      {/* 
-        ========================================================================
-        MODALE INTERACTIVE (Fără fundal continuu de muzică)
-        ========================================================================
-      */}
       
-      {/* Cartonaș Deschis pe Aproape Întreaga Pagină (Scurt Text Activitate + Poză Lângă) */}
       <DayDetailModal
         day={selectedDay}
         onClose={() => {
@@ -137,7 +101,6 @@ export default function App() {
         }}
       />
 
-      {/* Lightbox Galerie Foto: Deschide Doar Pozele la Dimensiuni Mari, Fără Text */}
       <PhotoLightboxModal
         photo={activePhoto}
         onClose={() => {
