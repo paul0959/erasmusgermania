@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Variable, Atom, Users2, Sliders, GraduationCap, Sparkles, School } from 'lucide-react';
+import { Variable, Atom, Users, Sliders, GraduationCap, Sparkles, School } from 'lucide-react';
 import { PEDAGOGICAL_PILLARS } from '../data/projectData';
 import { audioSystem } from '../utils/audioSystem';
 
@@ -20,7 +20,7 @@ export const JobShadowingSpotlight: React.FC = () => {
     switch (name) {
       case 'Variable': return Variable;
       case 'Atom': return Atom;
-      case 'Users2': return Users2;
+      case 'Users2': return Users;
       default: return Sparkles;
     }
   };

@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { Expand, MapPin } from 'lucide-react';
-import { DayPhoto } from '../data/projectData';
+import type { DayPhoto } from '../data/projectData';
 
 interface PhotoCardViewerProps {
   photo: DayPhoto;
@@ -70,8 +70,6 @@ export const PhotoCardViewer: React.FC<PhotoCardViewerProps> = ({
             <span>Deschide</span>
           </div>
         </div>
-        
-        {/* S-A ELIMINAT DIV-UL CU "ZIUA X" AICI */}
       </div>
     </div>
   );

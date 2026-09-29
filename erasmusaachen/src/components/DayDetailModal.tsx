@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { X, Calendar, MapPin, Images, Maximize2, Minimize2, ChevronLeft, ChevronRight } from 'lucide-react';
-import { DayJournal } from '../data/projectData';
+import type { DayJournal } from '../data/projectData';
 import { audioSystem } from '../utils/audioSystem';
 
 interface DayDetailModalProps {

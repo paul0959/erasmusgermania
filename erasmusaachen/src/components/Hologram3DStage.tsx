@@ -5,7 +5,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Calendar, MapPin, ArrowRight } from 'lucide-react';
-import { DAILY_JOURNAL, DayJournal, DayPhoto } from '../data/projectData';
+import { DAILY_JOURNAL } from '../data/projectData';
+import type { DayJournal, DayPhoto } from '../data/projectData';
 import { audioSystem } from '../utils/audioSystem';
 import { PhotoCardViewer } from './PhotoCardViewer';
 
