@@ -17,26 +17,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTeacherDossier }
   const interactiveHologramPillars = [
     {
       id: 1,
-      title: "Orele de Matematică",
+      title: "Didactica Matematicii",
       subtitle: "Prof. Frunză Paul-Adrian",
       badge: "Ecrane Interactive",
-      preview: "M-a fascinat naturalețea cu care folosesc ecranele tactile la ore. Elevul și profesorul construiesc rezolvarea împreună, direct pe tablă.",
+      preview: "Am analizat modul în care ecranele tactile sunt integrate în predarea matematicii. Profesorul și elevul colaborează direct pe platforma digitală pentru a rezolva exercițiile.",
       tagColor: "bg-[#e8eff5] text-[#1b2d40] border-[#c5d5e4]"
     },
     {
       id: 2,
-      title: "Laboratorul de Fizică",
+      title: "Fizică și Științe Aplicate",
       subtitle: "Prof. Petrașcu Traian",
       badge: "Senzori & Experimente",
-      preview: "Am văzut cum teoria prinde viață. Copiii măsoară totul cu senzori digitali și văd graficele formându-se în timp real pe tablete.",
+      preview: "Am urmărit desfășurarea experimentelor cu ajutorul senzorilor digitali, instrumente care permit generarea și interpretarea graficelor în timp real pe tablete.",
       tagColor: "bg-[#edf5f0] text-[#2c533c] border-[#c3ded0]"
     },
     {
       id: 3,
-      title: "Educație în Natură",
+      title: "Geografie și Ecologie",
       subtitle: "Prof. Hodoroga Florin",
-      badge: "Geografie Aplicată",
-      preview: "A fost o bucurie să scot elevii din bănci. Am fost la granița dintre cele 3 țări și am lucrat direct în mijlocul naturii.",
+      badge: "Educație Outdoor",
+      preview: "Am desfășurat activități practice de orientare și recunoaștere geografică direct în teren, inclusiv la intersecția granițelor celor trei state.",
       tagColor: "bg-[#f5ebdc] text-[#556349] border-[#c8b28a]"
     }
   ];
@@ -64,29 +64,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTeacherDossier }
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8">
             <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-display font-black text-[#1b2d40] tracking-tight leading-[1.15] mb-3 sm:mb-6">
-              Jurnalul Echipei Noastre: Inovație și Prietenie la <span className="text-[#758467]">Aachen</span>
+              Raport de Activitate: Mobilitate Erasmus+ la <span className="text-[#758467]">Aachen</span>
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed max-w-3xl mb-5 sm:mb-8">
-              Suntem bucuroși să împărtășim cu voi experiența pe care am trăit-o alături de elevii noștri la <strong>Geschwister-Scholl-Gymnasium</strong> din Germania. Timp de o săptămână ne-am așezat din nou în bănci, am asistat la ore, am făcut experimente și am cules idei minunate pe care abia așteptăm să le aducem în clasele din Sângeorz-Băi.
+              Prezentăm sinteza mobilității cadrelor didactice și elevilor noștri la <strong>Geschwister-Scholl-Gymnasium</strong> din Germania. Pe parcursul stagiului de formare am asistat la activități didactice, am analizat metode specifice de predare la disciplinele exacte și am identificat strategii educaționale pe care le vom implementa în cadrul claselor din Sângeorz-Băi.
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5">
               <a href="#jurnal-hologram" onClick={() => audioSystem.playSelectSound()} className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-[#1b2d40] hover:bg-[#121f2d] text-white font-bold text-xs sm:text-sm shadow-md shadow-[#1b2d40]/25 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 border border-[#2d455d]">
                 <Sparkles className="w-4 h-4 text-[#f5ebdc]" />
-                <span>Citește Jurnalul pe Zile</span>
+                <span>Consultă Jurnalul de Activități</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a href="#galerie" onClick={() => audioSystem.playSelectSound()} className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-[#f5ebdc] hover:bg-[#ede1ce] text-[#4d5942] border border-[#d6c7b0] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs active:scale-95">
                 <Images className="w-4 h-4 text-[#758467]" />
-                <span>Vezi Pozele</span>
+                <span>Accesează Galeria Foto</span>
               </a>
 
               {onOpenTeacherDossier && (
                 <button onClick={() => { onOpenTeacherDossier(); audioSystem.playSelectSound(); }} className="px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl bg-white hover:bg-slate-50 text-slate-700 border border-[#dfd5c5] font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 active:scale-95">
                   <FileText className="w-4 h-4 text-[#758467]" />
-                  <span>Detalii Proiect</span>
+                  <span>Vizualizează Dosarul Proiectului</span>
                 </button>
               )}
             </div>
@@ -99,22 +99,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTeacherDossier }
               <div className="flex items-center justify-between pb-3 sm:pb-4 mb-3 sm:mb-4 border-b border-white/20">
                 <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f5ebdc] text-[#45523a] shadow-xs">
                   <CheckCircle2 className="w-4 h-4 text-[#758467]" />
-                  Echipa Noastră
+                  Structura Delegației
                 </span>
                 <span className="text-[11px] font-mono font-bold text-[#f5ebdc]">Mai 2026</span>
               </div>
 
               <div className="space-y-2.5 sm:space-y-3.5">
                 <div className="flex items-center justify-between p-2.5 rounded-2xl bg-[#67755a]/70 border border-white/10">
-                  <span className="text-xs sm:text-sm text-[#f5ebdc] font-medium">Profesori Participanți</span>
-                  <span className="text-xs sm:text-sm font-bold text-[#3e4833] bg-[#f5ebdc] px-2.5 sm:px-3 py-1 rounded-xl">4 Colegi</span>
+                  <span className="text-xs sm:text-sm text-[#f5ebdc] font-medium">Cadre Didactice</span>
+                  <span className="text-xs sm:text-sm font-bold text-[#3e4833] bg-[#f5ebdc] px-2.5 sm:px-3 py-1 rounded-xl">4 Profesori</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-2xl bg-[#67755a]/70 border border-white/10">
-                  <span className="text-xs sm:text-sm text-[#f5ebdc] font-medium">Elevii Noștri</span>
+                  <span className="text-xs sm:text-sm text-[#f5ebdc] font-medium">Grup Țintă</span>
                   <span className="text-xs sm:text-sm font-bold text-[#3e4833] bg-[#f5ebdc] px-2.5 sm:px-3 py-1 rounded-xl">14 Elevi</span>
                 </div>
                 <div className="flex items-center justify-between p-2.5 rounded-2xl bg-[#67755a]/70 border border-white/10">
-                  <span className="text-xs sm:text-sm text-[#f5ebdc] font-medium">Școala Gazdă</span>
+                  <span className="text-xs sm:text-sm text-[#f5ebdc] font-medium">Instituție Gazdă</span>
                   <span className="text-xs font-bold text-[#f5ebdc] bg-[#5a674e] px-2.5 py-1 rounded-xl">Gymnasium Aachen</span>
                 </div>
               </div>
