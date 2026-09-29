@@ -67,24 +67,25 @@ export const VisualDiarySection: React.FC = () => {
 
   const getTranslateSpacing = () => {
     if (windowWidth < 380) return 130;
-    if (windowWidth < 640) return 165;
+    if (windowWidth < 640) return 155;
     if (windowWidth < 1024) return 260;
     return 330;
   };
 
   return (
-    <section id="galerie" className="py-10 sm:py-16 relative bg-white text-slate-900 overflow-hidden select-none border-t border-b border-[#dfd5c5]/80">
-      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-44 bg-gradient-to-r from-purple-400/20 via-indigo-300/10 to-transparent pointer-events-none blur-2xl" />
-      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-44 bg-gradient-to-l from-purple-400/20 via-indigo-300/10 to-transparent pointer-events-none blur-2xl" />
+    <section id="galerie" className="py-10 sm:py-16 relative bg-slate-50 text-slate-900 overflow-hidden select-none border-t border-b border-slate-200">
+      {/* S-au eliminat nuanțele vintage de fundal, lăsând loc albului curat */}
+      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-44 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent pointer-events-none z-20" />
+      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-44 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent pointer-events-none z-20" />
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-slate-400 uppercase block mb-1.5 sm:mb-2">GALERIE MEDIA</span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-[#172738] tracking-tight">Arhiva Completă</h2>
+          <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-blue-600 uppercase block mb-1.5 sm:mb-2">GALERIE MEDIA</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">Arhiva Completă</h2>
         </div>
 
         <div 
-          className="relative w-full max-w-6xl mx-auto h-[380px] xs:h-[420px] sm:h-[500px] lg:h-[540px] flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
+          className="relative w-full max-w-6xl mx-auto h-[360px] xs:h-[400px] sm:h-[500px] lg:h-[540px] flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
           onMouseDown={handleDragStart}
           onMouseMove={handleDragMove}
           onMouseUp={handleDragEnd}
@@ -104,13 +105,20 @@ export const VisualDiarySection: React.FC = () => {
               if (!isVisible) return null;
 
               const baseTranslateX = offset * getTranslateSpacing();
-              const translateX = baseTranslateX + (isDragging ? dragDeltaX * 0.6 : 0);
-              const scale = isCenter ? (windowWidth < 640 ? 1.03 : 1.06) : 0.85;
+              const translateX = baseTranslateX + (isDragging ? dragDeltaX * 0.7 : 0);
+              const scale = isCenter ? (windowWidth < 640 ? 1.02 : 1.06) : 0.85;
 
               return (
                 <div key={photo.id} onClick={() => { if(!isDragging || Math.abs(dragDeltaX) < 10) { isCenter ? handleCardClick(photo) : setActivePhotoIndex(idx); audioSystem.playSelectSound(); } }}
-                  style={{ position: 'absolute', transform: `translateX(${translateX}px) scale(${scale})`, zIndex: isCenter ? 30 : 20 - Math.abs(offset) * 5, opacity: isCenter ? 1 : Math.max(0.45, 1 - Math.abs(offset) * 0.28), transition: isDragging ? 'none' : 'transform 0.45s, opacity 0.45s' }}
-                  className={`w-[230px] xs:w-[260px] sm:w-[320px] lg:w-[360px] h-[330px] xs:h-[370px] sm:h-[440px] lg:h-[490px] rounded-[24px] sm:rounded-[28px] overflow-hidden transition-shadow duration-300 bg-slate-900 ${isCenter ? 'shadow-2xl ring-1 ring-slate-900/10' : 'shadow-md hover:opacity-90'}`}>
+                  style={{ 
+                    position: 'absolute', 
+                    transform: `translate3d(${translateX}px, 0, 0) scale(${scale})`, 
+                    zIndex: isCenter ? 30 : 20 - Math.abs(offset) * 5, 
+                    opacity: isCenter ? 1 : Math.max(0.45, 1 - Math.abs(offset) * 0.28), 
+                    transition: isDragging ? 'none' : 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease-out',
+                    willChange: 'transform, opacity'
+                  }}
+                  className={`w-[210px] xs:w-[240px] sm:w-[320px] lg:w-[360px] h-[300px] xs:h-[340px] sm:h-[440px] lg:h-[490px] rounded-[20px] sm:rounded-[28px] overflow-hidden transition-shadow duration-300 bg-slate-900 ${isCenter ? 'shadow-2xl shadow-blue-900/20 ring-1 ring-slate-900/10' : 'shadow-md hover:opacity-90'}`}>
                   <PhotoCardViewer photo={photo} showCaption={false} aspectRatio="square" />
                 </div>
               );
@@ -118,9 +126,9 @@ export const VisualDiarySection: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3 mt-6 sm:mt-8">
-          <button onClick={handlePrev} className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-300 hover:border-slate-900 bg-white hover:bg-slate-50 text-slate-800 flex items-center justify-center transition-all hover:scale-110 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
-          <button onClick={handleNext} className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-300 hover:border-slate-900 bg-white hover:bg-slate-50 text-slate-800 flex items-center justify-center transition-all hover:scale-110 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
+        <div className="flex items-center justify-center gap-3 mt-6 sm:mt-8 relative z-30">
+          <button onClick={handlePrev} className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-300 hover:border-blue-600 hover:text-blue-600 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center transition-all hover:scale-110 shadow-sm"><ChevronLeft className="w-5 h-5" /></button>
+          <button onClick={handleNext} className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-300 hover:border-blue-600 hover:text-blue-600 bg-white hover:bg-slate-50 text-slate-700 flex items-center justify-center transition-all hover:scale-110 shadow-sm"><ChevronRight className="w-5 h-5" /></button>
         </div>
       </div>
 
