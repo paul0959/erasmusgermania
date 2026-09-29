@@ -37,11 +37,10 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
     };
   }, [!!photo]);
 
-  // 2. Rularea Automată la 2 secunde
+  // 2. Rularea Automată la 2 secunde (slideshow rapid)
   useEffect(() => {
     if (!photo) return;
     
-    // Setăm cronometrul la 2 secunde (2000 ms)
     const timer = setTimeout(() => {
       const currentIndex = ALL_PHOTOS.findIndex((p) => p.id === photo.id);
       const nextIndex = (currentIndex + 1) % ALL_PHOTOS.length;
@@ -84,22 +83,21 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
 
   return (
     <div 
-      // Am adăugat "pt-24 sm:pt-28" pentru a coborî totul sub antetul meniului
       className="fixed inset-0 z-[999999] bg-black flex flex-col items-center justify-center pt-24 sm:pt-28 pb-4 px-2 overflow-hidden touch-pan-y"
       onClick={onClose} 
       onTouchStart={handleTouchStart} 
       onTouchMove={handleTouchMove} 
       onTouchEnd={handleTouchEnd}
     >
-      <div className="relative w-full h-full flex items-center justify-center">
+      <div className="relative w-full h-full flex items-center justify-center perspective-1000">
         {photo.mediaType === 'video' ? (
           <video 
             key={photo.id}
             src={photo.imageSrc} 
             controls 
             autoPlay 
-            // max-h-[75vh] limitează înălțimea pozei ca să nu urce sub meniu
-            className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain animate-in fade-in duration-500" 
+            // Efect cinematic pentru video
+            className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain animate-in fade-in slide-in-from-right-4 zoom-in-[0.97] duration-1000 ease-out" 
             onClick={(e) => e.stopPropagation()} 
           />
         ) : (
@@ -107,13 +105,13 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
             key={photo.id}
             src={photo.imageSrc} 
             alt={photo.title} 
-            className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain animate-in fade-in duration-500" 
+            // Efect cinematic ultra-profesional: Fade-in + Zoom-in subtil + Slide din dreapta pe durata a 1 secundă
+            className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain animate-in fade-in slide-in-from-right-8 zoom-in-[0.96] duration-1000 ease-out shadow-2xl" 
             onClick={(e) => e.stopPropagation()} 
           />
         )}
       </div>
 
-      {/* Butonul Exit poziționat mai jos pentru a nu se suprapune cu meniul */}
       <button 
         onClick={onClose} 
         className="absolute top-24 right-4 sm:top-28 sm:right-8 z-[1000000] p-3 sm:p-4 rounded-full bg-black/40 hover:bg-black/80 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
@@ -121,7 +119,6 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
         <X className="w-6 h-6 sm:w-8 sm:h-8" />
       </button>
 
-      {/* Săgețile de navigare */}
       <button 
         onClick={(e) => { e.stopPropagation(); handlePrev(); }} 
         className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 mt-12 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white opacity-0 hover:opacity-100 transition-all border border-white/10"
