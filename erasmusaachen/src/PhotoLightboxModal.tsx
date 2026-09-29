@@ -18,28 +18,40 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchDeltaX, setTouchDeltaX] = useState(0);
 
-  // 1. Sistemul automat pentru Muzica de Fundal
+  // 1. Sistem pentru Muzica de Fundal
   useEffect(() => {
     let bgMusic: HTMLAudioElement | null = null;
     
-    // Dacă am deschis o poză (photo există), pornim muzica
     if (photo) {
       bgMusic = new Audio('/muzica.mp3');
-      bgMusic.loop = true; // Se repetă la nesfârșit cât timp stai în galerie
-      bgMusic.volume = 0.3; // Volum ambiental, plăcut, nu prea tare
-      bgMusic.play().catch(err => console.log("Browser-ul a blocat autoplay-ul muzicii.", err));
+      bgMusic.loop = true; // Cântă în buclă cât timp e deschisă galeria
+      bgMusic.volume = 0.35; // Volum plăcut ambiental
+      bgMusic.play().catch(err => console.log("Autoplay-ul audio a fost blocat de browser.", err));
     }
 
-    // Funcția de 'cleanup' - când închidem galeria, oprim muzica
     return () => {
       if (bgMusic) {
         bgMusic.pause();
         bgMusic.currentTime = 0;
       }
     };
-  }, [!!photo]); // !!photo asigură că muzica pornește o singură dată la deschidere, nu la fiecare poză
+  }, [!!photo]);
 
-  // 2. Gestionarea tastaturii (Escape, Săgeți)
+  // 2. Rularea Automată a pozelor (Slideshow tip Film)
+  useEffect(() => {
+    if (!photo) return;
+    
+    // Schimbă poza la fiecare 4.5 secunde
+    const timer = setInterval(() => {
+      const currentIndex = ALL_PHOTOS.findIndex((p) => p.id === photo.id);
+      const nextIndex = (currentIndex + 1) % ALL_PHOTOS.length;
+      onSelectPhoto(ALL_PHOTOS[nextIndex]);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [photo, onSelectPhoto]);
+
+  // 3. Navigare manuală din taste (opțional)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!photo) return;
@@ -55,49 +67,79 @@ export const PhotoLightboxModal: React.FC<PhotoLightboxModalProps> = ({ photo, o
 
   const currentIndex = ALL_PHOTOS.findIndex((p) => p.id === photo.id);
 
-  const handlePrev = () => { onSelectPhoto(ALL_PHOTOS[(currentIndex - 1 + ALL_PHOTOS.length) % ALL_PHOTOS.length]); audioSystem.playSwipeSound(); };
-  const handleNext = () => { onSelectPhoto(ALL_PHOTOS[(currentIndex + 1) % ALL_PHOTOS.length]); audioSystem.playSwipeSound(); };
+  // Funcții pentru navigare manuală
+  const handlePrev = () => { 
+    onSelectPhoto(ALL_PHOTOS[(currentIndex - 1 + ALL_PHOTOS.length) % ALL_PHOTOS.length]); 
+    audioSystem.playSwipeSound(); 
+  };
+  const handleNext = () => { 
+    onSelectPhoto(ALL_PHOTOS[(currentIndex + 1) % ALL_PHOTOS.length]); 
+    audioSystem.playSwipeSound(); 
+  };
 
+  // Navigare prin atingere (Swipe pe ecrane tactile)
   const handleTouchStart = (e: React.TouchEvent) => { setTouchStartX(e.touches[0].clientX); setTouchDeltaX(0); };
   const handleTouchMove = (e: React.TouchEvent) => { setTouchDeltaX(e.touches[0].clientX - touchStartX); };
-  const handleTouchEnd = () => { if (touchDeltaX > 40) handlePrev(); else if (touchDeltaX < -40) handleNext(); setTouchDeltaX(0); };
+  const handleTouchEnd = () => { 
+    if (touchDeltaX > 50) handlePrev(); 
+    else if (touchDeltaX < -50) handleNext(); 
+    setTouchDeltaX(0); 
+  };
 
   return (
     <div 
-      // Am mărit z-index-ul la extrem și am coborât flex-ul mai jos (pt-28)
-      className="fixed inset-0 z-[999999] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center pt-28 sm:pt-32 pb-6 px-2 sm:px-12 overflow-hidden animate-in fade-in duration-200 select-none touch-pan-y"
-      onClick={onClose} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}
+      // Z-index masiv și bg-black pentru un aspect cinematic, ocupând 100% din ecran
+      className="fixed inset-0 z-[999999] bg-black flex items-center justify-center overflow-hidden touch-pan-y"
+      onClick={onClose} 
+      onTouchStart={handleTouchStart} 
+      onTouchMove={handleTouchMove} 
+      onTouchEnd={handleTouchEnd}
     >
-      {/* Butonul X mutat mult mai jos (top-28) ca să nu se bată cu meniul albastru de sus */}
+      {/* Imaginea afișată pe tot ecranul, cu o animație subtilă de intrare (fade-in) pentru senzația de film */}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+        {photo.mediaType === 'video' ? (
+          <video 
+            key={photo.id}
+            src={photo.imageSrc} 
+            controls 
+            autoPlay 
+            className="w-full h-full object-contain animate-in fade-in duration-700" 
+            onClick={(e) => e.stopPropagation()} 
+          />
+        ) : (
+          <img 
+            key={photo.id}
+            src={photo.imageSrc} 
+            alt={photo.title} 
+            className="w-full h-full object-contain animate-in fade-in duration-700" 
+            onClick={(e) => e.stopPropagation()} 
+          />
+        )}
+      </div>
+
+      {/* Butonul de Exit (X) poziționat sus-dreapta, perfect vizibil */}
       <button 
         onClick={onClose} 
-        className="absolute top-28 right-4 sm:top-28 sm:right-10 z-[1000000] p-3 sm:p-4 rounded-full bg-white/15 hover:bg-white/30 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
+        className="absolute top-6 right-6 sm:top-8 sm:right-8 z-[1000000] p-3 sm:p-4 rounded-full bg-black/40 hover:bg-black/80 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
       >
-        <X className="w-6 h-6 sm:w-7 sm:h-7" />
+        <X className="w-6 h-6 sm:w-8 sm:h-8" />
       </button>
 
+      {/* Săgețile de navigare manuală (ascunse pe telefoane mici pentru un aspect curat, lăsând rularea automată să-și facă treaba) */}
       <button 
         onClick={(e) => { e.stopPropagation(); handlePrev(); }} 
-        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-[1000000] p-3 sm:p-5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
+        className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white transition-all hover:scale-110 border border-white/10"
       >
-        <ChevronLeft className="w-7 h-7 sm:w-8 sm:h-8" />
+        <ChevronLeft className="w-8 h-8" />
       </button>
 
       <button 
         onClick={(e) => { e.stopPropagation(); handleNext(); }} 
-        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-[1000000] p-3 sm:p-5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all hover:scale-110 border border-white/20 shadow-2xl"
+        className="hidden sm:flex absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-[1000000] p-3 sm:p-5 rounded-full bg-black/20 hover:bg-black/60 text-white transition-all hover:scale-110 border border-white/10"
       >
-        <ChevronRight className="w-7 h-7 sm:w-8 sm:h-8" />
+        <ChevronRight className="w-8 h-8" />
       </button>
 
-      {/* Dimensiunea imaginii redusă puțin (max-h-[80vh]) pentru a încăpea perfect dedesubtul meniului */}
-      <div className="relative max-w-7xl max-h-[75vh] sm:max-h-[80vh] w-full h-full flex items-center justify-center p-1 sm:p-2" onClick={(e) => e.stopPropagation()}>
-        {photo.mediaType === 'video' ? (
-          <video src={photo.imageSrc} controls autoPlay className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain rounded-xl sm:rounded-2xl shadow-[0_25px_80px_rgba(0,0,0,0.95)] border border-white/10" />
-        ) : (
-          <img src={photo.imageSrc} alt={photo.title} className="max-w-full max-h-[75vh] sm:max-h-[80vh] object-contain rounded-xl sm:rounded-2xl shadow-[0_25px_80px_rgba(0,0,0,0.95)] border border-white/10" />
-        )}
-      </div>
     </div>
   );
 };
